@@ -5,6 +5,14 @@ import routerConfig from './router.config.js'
 import store from './store'
 import axios from 'axios'
 
+import filters from './filter'
+
+// Vue.filter(函数名， 函数体)
+// es6对象的遍历
+Object.keys(filters).forEach((key)=>{
+	Vue.filter(key, filters[key])
+})
+
 
 Vue.use(VueRouter);
 

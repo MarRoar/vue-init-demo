@@ -1,7 +1,9 @@
 <template>
     <div id="app">
         <BannerView v-show="headerShow"></BannerView>
-        <router-view></router-view>
+        <transition name="fade">
+            <router-view></router-view>
+        </transition>
 
         <FooterView></FooterView>
     </div>
@@ -43,4 +45,18 @@ export default {
 
 <style>
     @import url('./assets/css/common.css');
+
+    .fade-enter-active, 
+    .fade-leave-active {
+        transition: 0.4s all ease;
+        opacity: 0.2;
+        transform: translate3d(0, 10em, 0);
+    }
+
+    .fade-enter, 
+    .fade-leave {
+        opacity: 1;
+        transform: translate3d(0, 10em, 0);
+    }
+
 </style>
